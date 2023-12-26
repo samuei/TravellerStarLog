@@ -1,0 +1,64 @@
+body {
+	background-color: darkslategrey;
+	--kimashargur: crimson;
+	--ziru-sirka: gold;
+	--vegan: green;
+	--terran: navy;
+	--vilani: yellow;
+}
+
+#hexmap {
+	height: 2000px;
+	width: 100%;
+	animation-duration: 0.3s;
+	font-size: 11px;
+
+	.hex-cell {
+		stroke: whitesmoke;
+		stroke-width: 2px;
+		fill: black;
+		transition: fill 0.3s ease-in, stroke 0.3s ease-in, stroke-width 0.3s ease-in;
+
+		&.allegiance {
+			fill: #282828;
+
+			&.ZS {
+				fill: var(--ziru-sirka);
+			}
+			
+			&.ZSv {
+				fill: url(#ZSv);
+			}
+			
+			&.ZSk {
+				fill: url(#ZSk);
+			}
+			
+			&.TCv {
+				fill: url(#TCv);
+			}
+			
+			&.TC {
+				fill: var(--terran);
+			}
+		}
+	}
+
+	.hex-label {
+		tspan {
+			fill: whitesmoke;
+
+			&.big {
+				font-size: 1.2em;
+			}
+		}
+		
+		&.allegiance {
+			&.ZS ,&.ZSv ,&.ZSk {
+				tspan {
+					fill: black;
+				}
+			}
+		}
+	}
+}
