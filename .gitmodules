@@ -1,0 +1,3 @@
+[submodule "oi.hexmap.js"]
+	path = oi.hexmap.js
+	url = https://github.com/open-innovations/oi.hexmap.js
