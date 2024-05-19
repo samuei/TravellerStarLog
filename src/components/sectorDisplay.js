@@ -1,5 +1,6 @@
+import '../oi.hexmap.js/oi.hexmap';
 import sectorGen from './sectorGen.js';
-import attachSVGStyles from './utils/attachSVGStyles.js';
+import attachSVGStyles from '../utils/attachSVGStyles.js';
 
 const handleClick = (evt) => {
     console.log(evt.data);
