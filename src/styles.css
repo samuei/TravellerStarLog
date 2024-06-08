@@ -62,3 +62,29 @@ body {
 		}
 	}
 }
+
+.main-menu {
+	text-align: center;
+
+	button {
+		display: block;
+		margin: 5px auto;
+		width: 40%;
+
+		&[data-menu-depth="1"] {
+			width: 30%;
+
+			&::before {
+				content: '↳'
+			}
+		}
+
+		&[data-menu-depth="2"] {
+			width: 20%;
+
+			&::before {
+				content: '→'
+			}
+		}
+	}
+}
