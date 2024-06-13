@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react';
+import { useContext, useState } from 'react';
 import { starlogContext } from './starlogContext';
 
 const buttonConfig = [
@@ -11,7 +11,7 @@ const buttonConfig = [
         subMenu: [
             {
                 appMode: 'import-tsv',
-                display: 'From T5 TSV'
+                display: 'From T5 TSV',
             }
         ]
     },
@@ -26,8 +26,6 @@ const buttonConfig = [
 ];
 
 const MainMenu = () => {
-    const context = useContext(starlogContext);
-    
     return (
         <div
             className='main-menu'
@@ -61,7 +59,7 @@ export const MenuButton = ({
                 key={btnConfig.display}
                 className="menu-button"
                 data-menu-depth={lvl}
-                onClick={() => setOpen(true)}
+                onClick={() => setOpen(!open)}
             >
                 {btnConfig.display}
             </button>
@@ -74,7 +72,7 @@ export const MenuButton = ({
                             key={subConfig.display}
                             btnConfig={subConfig}
                             lvl={lvl + 1}
-                            onClick={() => setOpen(false)}
+                            onClick={() => setOpen(!open)}
                         />
                     );
                 })
@@ -87,7 +85,7 @@ export const MenuButton = ({
                 className='menu-button'
                 data-menu-depth={lvl}
                 onClick={() => {
-                    context.appMode = btnConfig.appMode;
+                    context.setAppMode(btnConfig.appMode);
                 }}
             >
                 {btnConfig.display}
