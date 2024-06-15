@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { starlogContext } from './starlogContext.js';
+import Papa from 'papaparse';
 
 const T5Import = () => {
     const context = useContext(starlogContext);
@@ -13,6 +14,32 @@ const T5Import = () => {
             >
                 {'<- Back'}
             </button>
+            <label>
+                Upload
+                <input
+                    type='file'
+                    onChange={(e) => {
+                        //e.target.files
+                        e.target.files[0].text().then((dataFile) => {
+                            const file = Papa.parse(dataFile, {
+                                skipEmptyLines: 'greedy',
+                                header: true,
+                            });
+                            console.log(file);
+                            // SAM: file.data has all the shit as a gigantic array. That's how you get the file. ogogogogog
+                        });
+                    }}
+                />
+            </label>
+            <label>
+                Input
+                <input
+                    type='textarea'
+                    onChange={(e) => {
+                        console.log(e);
+                    }}
+                />
+            </label>
         </div>
     );
 };
