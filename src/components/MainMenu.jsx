@@ -12,8 +12,8 @@ const buttonConfig = [
             {
                 appMode: 'import-tsv',
                 display: 'From T5 TSV',
-            }
-        ]
+            },
+        ],
     },
     {
         appMode: 'load',
