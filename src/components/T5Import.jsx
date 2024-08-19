@@ -28,6 +28,19 @@ const arrayToHex = (inArray=[], xmax=32, ymax=40) => {
     return hexes;
 };
 
+const parseT5FileIntoMapObject = (dataFile={}) => {
+    const file = Papa.parse(dataFile, {
+        skipEmptyLines: 'greedy',
+        header: true,
+    });
+
+    const hexes = arrayToHex(file.data);
+    return {
+        hexes,
+        properties : {}
+    };
+};
+
 const T5Import = () => {
     const [textVal, setTextVal] = useState('');
 
@@ -48,13 +61,8 @@ const T5Import = () => {
                     type='file'
                     onChange={(e) => {
                         e.target.files[0].text().then((dataFile) => {
-                            const file = Papa.parse(dataFile, {
-                                skipEmptyLines: 'greedy',
-                                header: true,
-                            });
-
-                            const hexes = arrayToHex(file.data);
-                            context.setMapObject(hexes);
+                            const mapObj = parseT5FileIntoMapObject(dataFile);
+                            context.setMapObject(mapObj);
                             context.setAppMode('menu');
                         });
                     }}
@@ -71,13 +79,8 @@ const T5Import = () => {
                 />
                 <button
                     onClick={() => {
-                        const file = Papa.parse(textVal, {
-                            skipEmptyLines: 'greedy',
-                            header: true,
-                        });
-
-                        const hexes = arrayToHex(file.data);
-                        context.setMapObject(hexes);
+                        const mapObj = parseT5FileIntoMapObject(textVal);
+                        context.setMapObject(mapObj);
                         context.setAppMode('menu');
                     }}
                 >
