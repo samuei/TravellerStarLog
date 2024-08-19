@@ -5,6 +5,7 @@ const buttonConfig = [
     { 
         appMode: 'view',
         display: 'View',
+        mapRequired: true,
     },
     {
         display: 'Import',
@@ -22,6 +23,7 @@ const buttonConfig = [
     {
         appMode: 'save',
         display: 'Save to Local Storage',
+        mapRequired: true,
     },
 ];
 
@@ -78,6 +80,8 @@ export const MenuButton = ({
                 })
             );
         }
+    } else if (btnConfig.mapRequired && !context.mapObject) {
+        return null;
     } else {
         ret.push(
             <button
