@@ -6,3 +6,4 @@ export const starlogContext = createContext({
     mapObject: null,
     setMapObject: () => {},
 });
+starlogContext.displayName = 'StarlogContext';
