@@ -65,11 +65,24 @@ body {
 
 .main-menu {
 	text-align: center;
+	color: aqua;
 
 	button {
 		display: block;
-		margin: 5px auto;
+		margin: 5vh auto;
 		width: 40%;
+		border-color: aqua;
+		border-radius: 0.6em;
+		color: darkblue;
+		box-shadow: 0 0 40px 40px aqua inset, 0 0 0 0 #3498db;
+		transition: all 150ms ease-in-out;
+		background-color: transparent;
+		padding: 1.2em 0;
+
+		&:hover {
+			box-shadow: 0 0 10px 0 aqua inset, 0 0 10px 4px aqua;
+			color: aqua;
+		}
 
 		&[data-menu-depth="1"] {
 			width: 30%;
@@ -85,6 +98,16 @@ body {
 			&::before {
 				content: '→'
 			}
+		}
+	}
+
+	label {
+		display: block;
+		margin: 5vh auto;
+
+		input, textarea {
+			display: block;
+			margin: auto;
 		}
 	}
 }

@@ -47,7 +47,7 @@ const T5Import = () => {
     const context = useContext(starlogContext);
 
     return (
-        <div>
+        <div className='main-menu'>
             <button
                 onClick={() => {
                     context.setAppMode('menu');
@@ -70,12 +70,13 @@ const T5Import = () => {
             </label>
             <label>
                 Input as text
-                <input
-                    type='textarea'
+                <textarea
                     onChange={(e) => {
                         setTextVal(e.target.value);
                     }}
                     value={textVal}
+                    cols={40}
+                    rows={5}
                 />
                 <button
                     onClick={() => {
