@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { starlogContext } from './starlogContext.js';
+import attachSVGStyles from '../utils/attachSVGStyles.js';
 
 const MapView = () => {
     const hexMapRef = useRef(null);
@@ -44,6 +45,7 @@ const MapView = () => {
                 },
             );
             setCurrentMap(mapObj);
+            attachSVGStyles();
         }
     }, []);
 
