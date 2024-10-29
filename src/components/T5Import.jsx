@@ -37,6 +37,7 @@ const parseT5FileIntoMapObject = (dataFile={}) => {
     const hexes = arrayToHex(file.data);
     return {
         hexes,
+        layout: 'even-q',
         properties : {}
     };
 };
