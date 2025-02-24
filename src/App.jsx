@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './oi.hexmap.js/dist/oi.hexmap.js';
 import MainMenu from './components/MainMenu.jsx';
 import { starlogContext } from './components/starlogContext.js';
 import T5Import from './components/T5Import.jsx';
