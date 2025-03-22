@@ -29,10 +29,9 @@ const MapView = () => {
                             let tspans;
 
                             if (attr?.hex?.Name !== undefined) {
-                                tspans = `<tspan class="active" x="${attr.x}" y="${attr.y}">${attr.hex.Name.length ? attr.hex.Name : '????'}</tspan>`;
-                                tspans += `<tspan class="active" x="${attr.x}" y="${attr.y + (1.2 * attr['font-size'])}">${txt}</tspan>`;
+                                tspans = `<tspan class="active">${attr.hex.Name.length ? attr.hex.Name : '????'}</tspan>`;
                             } else {
-                                tspans = `<tspan class="active big" y="${attr.y}" x="${attr.x}">${txt}</tspan>`;
+                                tspans = `<tspan class="active big">${txt}</tspan>`;
                             }
 
                             return tspans;
