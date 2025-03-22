@@ -13,7 +13,7 @@ body {
 	animation-duration: 0.3s;
 	font-size: 11px;
 
-	.hex-cell {
+	g > path {
 		stroke: whitesmoke;
 		stroke-width: 2px;
 		fill: black;
@@ -23,24 +23,46 @@ body {
 	.allegiance {
 		fill: #282828;
 
-		&.ZS > .hex-cell {
-			fill: var(--ziru-sirka);
+		&.ZS {
+			tspan {
+				fill: black;
+			}
+
+			path {
+				fill: var(--ziru-sirka);
+			}
 		}
 
-		&.ZSv > .hex-cell {
-			fill: url(#ZSv);
+		&.ZSv {
+			tspan {
+				fill: black;
+			}
+
+			path {
+				fill: url(#ZSv);
+			}
 		}
 
-		&.ZSk > .hex-cell {
-			fill: url(#ZSk);
+		&.ZSk {
+			tspan {
+				fill: black;
+			}
+
+			path {
+				fill: url(#ZSk);
+			}
 		}
 
-		&.TCv > .hex-cell {
+		&.TCv > path {
 			fill: url(#TCv);
 		}
 
-		&.TC > .hex-cell {
+		&.TC > path {
 			fill: var(--terran);
+		}
+
+		&.NA > path {
+			fill: gray;
 		}
 	}
 
@@ -50,14 +72,6 @@ body {
 
 			&.big {
 				font-size: 1.2em;
-			}
-		}
-		
-		&.allegiance {
-			&.ZS ,&.ZSv ,&.ZSk {
-				tspan {
-					fill: black;
-				}
 			}
 		}
 	}
