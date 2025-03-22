@@ -2,6 +2,9 @@ import svgStyles from '../assets/svgStyles.js';
 
 const attachSVGStyles = () => {
     const defs = document.querySelector('defs');
+    if (!defs) {
+        return;
+    }
 
     svgStyles.forEach((style) => {
         const el = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
