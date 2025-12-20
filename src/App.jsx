@@ -40,7 +40,7 @@ const App = () => {
             appMode, setAppMode, mapObject, setMapObject,
         }}>
             <div>{systemMessage}</div>
-            <DisplayComp />
+            <DisplayComp key={appMode} />
         </starlogContext.Provider>
     );
 };

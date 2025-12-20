@@ -1,0 +1,124 @@
+.hex-map-wrapper {
+    .hex-map-row {
+        display: flex;
+        gap: calc(var(--hex-side-length) * 1/4);
+        height: calc(var(--hex-side-length) * .86);
+
+        &.even {
+        }
+    }
+
+    .clip-block {
+        /* There's MATH here, I just know it. I just have to find it. */
+        height: calc(var(--hex-side-length) * .418);
+        width: calc(var(--hex-side-length) * .462);
+        overflow: visible;
+
+        &.even {
+            align-self: flex-end;
+        }
+
+        &.odd {
+            align-self: flex-start;
+        }
+    }
+
+    .clip-caption {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .clip-each {
+        z-index: 1;
+        display: block;
+        position: relative;
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+        transition: all 0.2s ease-in;
+        margin: 0 auto;
+    }
+
+    .clip-each:hover {
+        z-index: 2;
+        background: azure;
+        transition: all 0.25s ease-in;
+    }
+
+    .clip-border {
+        background: antiquewhite;
+        width: var(--hex-side-length);
+        height: var(--hex-side-length);
+        margin-top: 7px;
+        color: antiquewhite;
+
+        &.allegiance {
+            &.ZS {
+                color: black;
+            }
+
+            &.ZSv {
+                color: black;
+            }
+
+            &.ZSk {
+                color: black;
+            }
+
+            &.TCv {
+                color: white;
+            }
+
+            &.TC {
+                color: white;
+            }
+
+            &.Na {
+                color: antiquewhite;
+            }
+        }
+    }
+
+    .clip-border::after {
+        content: "";
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        right: 4%;
+        bottom: 4%;
+        margin: 0 auto;
+        background: black;
+        transition: all 0.3s linear;
+        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+        z-index: -1;
+    }
+
+    .clip-border.allegiance::after {
+        background: #282828;
+    }
+
+    .clip-border.allegiance.ZS::after {
+        background: var(--ziru-sirka);
+    }
+
+    .clip-border.allegiance.ZSv::after {
+        background: radial-gradient(var(--ziru-sirka), var(--vegan));
+    }
+
+    .clip-border.allegiance.ZSk::after {
+        background: radial-gradient(var(--ziru-sirka), var(--kimashargur));
+    }
+
+    .clip-border.allegiance.TCv::after {
+        background: radial-gradient(var(--terran), var(--vegan));
+    }
+
+    .clip-border.allegiance.TC::after {
+        background: var(--terran);
+    }
+
+    .clip-border.allegiance.Na::after {
+        background: gray;
+    }
+}
