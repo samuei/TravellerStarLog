@@ -8,6 +8,7 @@ const App = () => {
     const [appMode, setAppMode] = useState('menu');
     const [mapObject, setMapObject] = useState(null);
     const [systemMessage, setSystemMessage] = useState(null);
+    const [hexSideLength, setHexSideLength] = useState(180);
 
     let DisplayComp;
     
@@ -37,7 +38,12 @@ const App = () => {
     
     return (
         <starlogContext.Provider value={{
-            appMode, setAppMode, mapObject, setMapObject,
+            appMode,
+            setAppMode,
+            mapObject,
+            setMapObject,
+            hexSideLength,
+            setHexSideLength,
         }}>
             <div>{systemMessage}</div>
             <DisplayComp key={appMode} />

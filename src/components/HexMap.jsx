@@ -15,13 +15,10 @@ const Hexagon = ({ className='', hexName='', allegiance='' }) => {
     );
 };
 
-const HexMap = ({
-    hexSideLength=360
-}) => {
+const HexMap = () => {
     const context = useContext(starlogContext);
 
     const hexes = useMemo(() => {
-        console.log(context.mapObject);
         const map = [];
         for (let i = 0; i < context.mapObject.height; i++) {
             if (map[i] === undefined) {
@@ -47,7 +44,7 @@ const HexMap = ({
         <div
             className='hex-map-wrapper'
             style={{
-                '--hex-side-length': `${hexSideLength}px`,
+                '--hex-side-length': `${context.hexSideLength}px`,
             }}
         >
             {
