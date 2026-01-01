@@ -20,7 +20,7 @@ const parseT5FileIntoMapObject = (dataFile={}, xMax=32, yMax=40) => {
             if (hexes[y] === undefined) {
                 hexes[y] = [];
             }
-            let hexname = ('00' + (x + 1)).slice(-2) + ('00' + (yMax - y)).slice(-2);
+            let hexname = ('00' + (x + 1)).slice(-2) + ('00' + (y + 1)).slice(-2);
             const hex = referenceMap.get(hexname) ?? {};
             hex.x = x;
             hex.y = y;
