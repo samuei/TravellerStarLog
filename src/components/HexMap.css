@@ -103,15 +103,15 @@
     }
 
     .clip-border.allegiance.ZSv::after {
-        background: radial-gradient(var(--ziru-sirka), var(--vegan));
+        background: radial-gradient(circle at center, var(--ziru-sirka) 30%, var(--vegan) 80%);
     }
 
     .clip-border.allegiance.ZSk::after {
-        background: radial-gradient(var(--ziru-sirka), var(--kimashargur));
+        background: radial-gradient(circle at center, var(--ziru-sirka) 30%, var(--kimashargur) 80%);
     }
 
     .clip-border.allegiance.TCv::after {
-        background: radial-gradient(var(--terran), var(--vegan));
+        background: radial-gradient(circle at center, var(--terran) 30%, var(--vegan) 80%);
     }
 
     .clip-border.allegiance.TC::after {
