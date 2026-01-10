@@ -2,12 +2,13 @@ import { useMemo, useContext } from 'react';
 import { starlogContext } from './starlogContext.js';
 import './HexMap.css';
 
-const Hexagon = ({ className='', hexName='', allegiance='' }) => {
-    console.log(allegiance)
+const Hexagon = ({ className='', hexName='', allegiance='', starport=null }) => {
     return (
         <div className={`clip-block ${className} ${hexName}`}>
             <div className={`clip-each clip-border ${ allegiance ? allegiance + ' allegiance' : ''}`}>
                 <div className="clip-caption">
+                    {starport}
+                    <br />
                     {hexName}
                 </div>
             </div>
@@ -25,13 +26,15 @@ const HexMap = () => {
                 map[i] = [];
             }
             for (let j = 0; j < context.mapObject.width; j++) {
-                const hexName = ('00' + (j + 1)).slice(-2) + ('00' + (i+1)).slice(-2);
+                const hex = context.mapObject.hexes[i][j] || {};
+                const hexName = hex.Name || ('00' + (j + 1)).slice(-2) + ('00' + (i + 1)).slice(-2);
                 map[i][j] = (
                     <Hexagon
                         className={ j % 2 === 1 ? 'even' : 'odd' /* Off by one due to zero-indexing! */}
                         hexName={hexName}
                         key={hexName}
-                        allegiance={ context.mapObject.hexes[i][j].Allegiance ?? null }
+                        starport={ hex.UWP?.[0] }
+                        allegiance={ hex.Allegiance ?? null }
                     />
                 );
             }
