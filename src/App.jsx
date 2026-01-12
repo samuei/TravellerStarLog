@@ -49,7 +49,15 @@ const App = () => {
             hexSideLength,
             setHexSideLength,
         }}>
-            <div>{systemMessage}</div>
+            {
+                systemMessage &&
+                <div
+                    className='system-message'
+                    key={systemMessage}
+                >
+                    {systemMessage}
+                </div>
+            }
             <DisplayComp key={appMode} />
         </starlogContext.Provider>
     );
