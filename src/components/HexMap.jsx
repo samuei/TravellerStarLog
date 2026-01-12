@@ -2,10 +2,15 @@ import { useMemo, useContext } from 'react';
 import { starlogContext } from './starlogContext.js';
 import './HexMap.css';
 
-const Hexagon = ({ className='', hexName='', allegiance='', starport=null }) => {
+const Hexagon = ({
+    className='', hexName='', allegiance='', starport=null, onClick=()=>{},
+}) => {
     return (
         <div className={`clip-block ${className} ${hexName}`}>
-            <div className={`clip-each clip-border ${ allegiance ? allegiance + ' allegiance' : ''}`}>
+            <div
+                className={`clip-each clip-border ${ allegiance ? allegiance + ' allegiance' : ''}`}
+                onClick={onClick}
+            >
                 <div className="clip-caption">
                     {starport}
                     <br />
@@ -16,7 +21,9 @@ const Hexagon = ({ className='', hexName='', allegiance='', starport=null }) => 
     );
 };
 
-const HexMap = () => {
+const HexMap = ({
+    setActiveHex=()=>{},
+}) => {
     const context = useContext(starlogContext);
 
     const hexes = useMemo(() => {
@@ -27,7 +34,8 @@ const HexMap = () => {
             }
             for (let j = 0; j < context.mapObject.width; j++) {
                 const hex = context.mapObject.hexes[i][j] || {};
-                const hexName = hex.Name || ('00' + (j + 1)).slice(-2) + ('00' + (i + 1)).slice(-2);
+                const hexCoordinate = ('00' + (j + 1)).slice(-2) + ('00' + (i + 1)).slice(-2);
+                const hexName = hex.Name || hexCoordinate;
                 map[i][j] = (
                     <Hexagon
                         className={ j % 2 === 1 ? 'even' : 'odd' /* Off by one due to zero-indexing! */}
@@ -35,13 +43,14 @@ const HexMap = () => {
                         key={hexName}
                         starport={ hex.UWP?.[0] }
                         allegiance={ hex.Allegiance ?? null }
+                        onClick={() => setActiveHex(hexCoordinate)}
                     />
                 );
             }
         }
 
         return map;
-    }, [context.mapObject]);
+    }, [context.mapObject, setActiveHex]);
 
     return (
         <div
