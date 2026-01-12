@@ -23,6 +23,8 @@ const App = () => {
             localStorage.setItem('map', JSON.stringify(mapObject));
             setAppMode('menu');
             setSystemMessage('Saved!');
+            DisplayComp = MainMenu;
+            break;
         case 'load':
             let storedMap = localStorage.getItem('map');
             if (storedMap) {
@@ -31,11 +33,13 @@ const App = () => {
             setMapObject(storedMap);
             setAppMode('menu');
             setSystemMessage('Loaded!');
+            DisplayComp = MainMenu;
+            break;
         case 'menu':
         default:
             DisplayComp = MainMenu;
     }
-    
+
     return (
         <starlogContext.Provider value={{
             appMode,
