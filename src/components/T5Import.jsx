@@ -2,42 +2,38 @@ import { useContext, useState } from 'react';
 import { starlogContext } from './starlogContext.js';
 import Papa from 'papaparse';
 
-const arrayToHex = (inArray=[], xmax=32, ymax=40) => {
-    const referenceMap = new Map();
-    inArray.forEach((row) => {
-        referenceMap.set(row.Hex, row);
-    });
-
-    let hexes = {};
-
-    for (let x = 0; x < xmax; x++) {
-        for (let y = 0; y < ymax; y++) {
-            let hexname = ('00' + (x + 1)).slice(-2) + ('00' + (ymax - y)).slice(-2);
-            const hex = referenceMap.get(hexname) ?? {};
-            hex.q = x;
-            hex.r = y;
-            hex.n = hexname;
-            if (hex.Allegiance) {
-                hex.class = `allegiance ${hex.Allegiance}`;
-            }
-
-            hexes[hexname] = hex;
-        }
-    }
-
-    return hexes;
-};
-
-const parseT5FileIntoMapObject = (dataFile={}) => {
+const parseT5FileIntoMapObject = (dataFile={}, xMax=32, yMax=40) => {
     const file = Papa.parse(dataFile, {
         skipEmptyLines: 'greedy',
         header: true,
     });
 
-    const hexes = arrayToHex(file.data);
+    const hexes = {};
+    const referenceMap = new Map();
+
+    file.data.forEach((row) => {
+        referenceMap.set(row.Hex, row);
+    });
+
+    for (let x = 0; x < xMax; x++) {
+        for (let y = 0; y < yMax; y++) {
+            if (hexes[y] === undefined) {
+                hexes[y] = [];
+            }
+            let hexname = ('00' + (x + 1)).slice(-2) + ('00' + (y + 1)).slice(-2);
+            const hex = referenceMap.get(hexname) ?? {};
+            hex.x = x;
+            hex.y = y;
+            hex.hexName = hexname;
+
+            hexes[y][x] = hex;
+        }
+    }
+
     return {
         hexes,
-        layout: 'even-q',
+        height: yMax,
+        width: xMax,
         properties : {}
     };
 };
