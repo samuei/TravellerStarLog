@@ -3,9 +3,6 @@
         display: flex;
         gap: calc(var(--hex-side-length) * 1/4);
         height: calc(var(--hex-side-length) * .86);
-
-        &.even {
-        }
     }
 
     .clip-block {
