@@ -7,10 +7,16 @@ const MapView = () => {
 
     return (
         <div className='map-container'>
-            <MapSideBar
-                activeHex={activeHex}
-                setActiveHex={setActiveHex}
-            />
+            {
+                activeHex &&
+                <div className='map-side-bar-container'>
+                    <MapSideBar
+                        activeHex={activeHex}
+                        setActiveHex={setActiveHex}
+                    />
+                </div>
+            }
+
             <div className='body'>
                 <HexMap
                     setActiveHex={setActiveHex}
