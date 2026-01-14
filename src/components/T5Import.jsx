@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { starlogContext } from './starlogContext.js';
+import { starLogContext } from './starLogContext.js';
 import Papa from 'papaparse';
 
 const parseT5FileIntoMapObject = (dataFile={}, xMax=32, yMax=40) => {
@@ -41,7 +41,7 @@ const parseT5FileIntoMapObject = (dataFile={}, xMax=32, yMax=40) => {
 const T5Import = () => {
     const [textVal, setTextVal] = useState('');
 
-    const context = useContext(starlogContext);
+    const context = useContext(starLogContext);
 
     return (
         <div className='main-menu'>

@@ -1,5 +1,5 @@
 import { useMemo, useContext } from 'react';
-import { starlogContext } from './starlogContext.js';
+import { starLogContext } from './starLogContext.js';
 import './HexMap.css';
 
 const Hexagon = ({
@@ -24,7 +24,7 @@ const Hexagon = ({
 const HexMap = ({
     setActiveHex=()=>{},
 }) => {
-    const context = useContext(starlogContext);
+    const context = useContext(starLogContext);
 
     const hexes = useMemo(() => {
         const map = [];

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import MainMenu from './components/MainMenu.jsx';
-import { starlogContext } from './components/starlogContext.js';
+import { starLogContext } from './components/starLogContext.js';
 import T5Import from './components/T5Import.jsx';
 import MapView from './components/MapView.jsx';
 
@@ -38,7 +38,7 @@ const App = () => {
     }
 
     return (
-        <starlogContext.Provider value={{
+        <starLogContext.Provider value={{
             appMode,
             setAppMode,
             mapObject,
@@ -47,7 +47,7 @@ const App = () => {
             setHexSideLength,
         }}>
             <DisplayComp key={appMode} />
-        </starlogContext.Provider>
+        </starLogContext.Provider>
     );
 };
 export default App;

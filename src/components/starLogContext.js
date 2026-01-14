@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export const starlogContext = createContext({
+export const starLogContext = createContext({
     appMode: 'menu',
     setAppMode: () => {},
     mapObject: null,
@@ -8,4 +8,4 @@ export const starlogContext = createContext({
     hexSideLength: 360,
     setHexSideLength: () => {},
 });
-starlogContext.displayName = 'StarlogContext';
+starLogContext.displayName = 'StarlogContext';

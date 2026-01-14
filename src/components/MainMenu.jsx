@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { starlogContext } from './starlogContext';
+import { starLogContext } from './starLogContext.js';
 
 const buttonConfig = [
     { 
@@ -51,7 +51,7 @@ export default MainMenu;
 export const MenuButton = ({
     btnConfig={}, lvl=0
 }) => {
-    const context = useContext(starlogContext);
+    const context = useContext(starLogContext);
     const [open, setOpen] = useState(false);
 
     const ret = [];
