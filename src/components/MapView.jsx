@@ -1,6 +1,7 @@
-import HexMap from './HexMap.jsx';
 import { useState } from 'react';
+import HexMap from './HexMap.jsx';
 import MapSideBar from './MapSideBar.jsx';
+import './MapView.css';
 
 const MapView = () => {
     const [activeHex, setActiveHex] = useState(null);
