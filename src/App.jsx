@@ -7,7 +7,6 @@ import MapView from './components/MapView.jsx';
 const App = () => {
     const [appMode, setAppMode] = useState('menu');
     const [mapObject, setMapObject] = useState(null);
-    const [systemMessage, setSystemMessage] = useState(null);
     const [hexSideLength, setHexSideLength] = useState(180);
 
     let DisplayComp;
@@ -22,7 +21,6 @@ const App = () => {
         case 'save':
             localStorage.setItem('map', JSON.stringify(mapObject));
             setAppMode('menu');
-            setSystemMessage('Saved!');
             DisplayComp = MainMenu;
             break;
         case 'load':
@@ -32,7 +30,6 @@ const App = () => {
             }
             setMapObject(storedMap);
             setAppMode('menu');
-            setSystemMessage('Loaded!');
             DisplayComp = MainMenu;
             break;
         case 'menu':
@@ -49,15 +46,6 @@ const App = () => {
             hexSideLength,
             setHexSideLength,
         }}>
-            {
-                systemMessage &&
-                <div
-                    className='system-message'
-                    key={systemMessage}
-                >
-                    {systemMessage}
-                </div>
-            }
             <DisplayComp key={appMode} />
         </starlogContext.Provider>
     );

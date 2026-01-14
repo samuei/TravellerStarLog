@@ -7,24 +7,6 @@ body {
 	--vilani: yellow;
 }
 
-@keyframes fadeOut {
-	from {
-		opacity: 1;
-	}
-	to {
-		opacity: 0;
-	}
-}
-
-.system-message {
-	display: inline-block;
-	padding: .5em;
-	border-radius: 0.5em;
-	background-color: aqua;
-	color: darkblue;
-	animation: fadeOut 2s forwards;
-}
-
 .main-menu {
 	text-align: center;
 	color: aqua;
