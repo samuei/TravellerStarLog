@@ -1,0 +1,16 @@
+.map-side-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    color: antiquewhite;
+    min-width: 25vw;
+
+    .map-side-bar-close {
+        grid-column-start: 5;
+    }
+
+    form {
+        grid-column: span 5 / span 5;
+        text-align: center;
+    }
+}
