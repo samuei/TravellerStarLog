@@ -1,8 +1,8 @@
-import { memo, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { starLogContext } from './starLogContext.js';
 import './MapSideBar.css';
 
-const MapSideBar = memo(({
+const MapSideBar = ({
     activeHex=null, setActiveHex=()=>{},
 }) => {
     if (!activeHex || !activeHex.length) {
@@ -26,16 +26,27 @@ const MapSideBar = memo(({
             <form>
                 <h2>
                     {activeHex}
-                    <br />
+                </h2>
+                <label>
+                    System Name
                     <input
                         type='text'
                         placeholder={activeHex}
                         value={systemName}
                         onChange={(e) => setSystemName(e.target.value)}
                     />
-                </h2>
+                </label>
+                <label>
+                    UWP
+                    <input
+                        type='text'
+                        placeholder={uwp}
+                        value={uwp}
+                        onChange={(e) => setUwp(e.target.value)}
+                    />
+                </label>
             </form>
         </div>
     );
-});
+};
 export default MapSideBar;

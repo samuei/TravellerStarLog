@@ -12,5 +12,8 @@
     form {
         grid-column: span 5 / span 5;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }

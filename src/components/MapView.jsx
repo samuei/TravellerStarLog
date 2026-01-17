@@ -12,6 +12,7 @@ const MapView = () => {
                 activeHex &&
                 <div className='map-side-bar-container'>
                     <MapSideBar
+                        key={activeHex}
                         activeHex={activeHex}
                         setActiveHex={setActiveHex}
                     />
