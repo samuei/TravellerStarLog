@@ -5,8 +5,13 @@
     color: antiquewhite;
     min-width: 25vw;
 
-    .map-side-bar-close {
+    .map-side-bar-controls {
         grid-column-start: 5;
+        text-align: end;
+
+        button {
+            margin-left: 2px;
+        }
     }
 
     form {
@@ -15,5 +20,13 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        label {
+            display: block;
+        }
+
+        input {
+            text-align: center;
+        }
     }
 }
