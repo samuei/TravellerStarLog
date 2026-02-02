@@ -8,4 +8,4 @@ export const starLogContext = createContext({
     hexSideLength: 360,
     setHexSideLength: () => {},
 });
-starLogContext.displayName = 'StarlogContext';
+starLogContext.displayName = 'StarLogContext';
