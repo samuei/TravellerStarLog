@@ -10,8 +10,8 @@ const MapSideBar = ({
         return null;
     }
     const context = useContext(starLogContext);
-    const xCoordinates = `${activeHex[activeHex.length - 2]}${activeHex[activeHex.length - 1]}`;
     const yCoordinates = `${activeHex[0]}${activeHex[1]}`;
+    const xCoordinates = `${activeHex[2]}${activeHex[3]}`;
     const hexData = context.mapObject.hexes[xCoordinates - 1][yCoordinates - 1];
 
 
