@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { starLogContext } from './starLogContext.js';
+import HexInfoDisplay from './HexInfoDisplay.jsx';
 import './MapSideBar.css';
-import { HexDisplay } from './HexDisplay.jsx';
 
 const MapSideBar = ({
     activeHex=null, setActiveHex=()=>{},

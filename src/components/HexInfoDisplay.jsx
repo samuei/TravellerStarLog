@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { starLogContext } from './starLogContext.js';
 
-export const HexDisplay = ({
+const HexInfoDisplay = ({
     hexData = {}, activeHex = null
 }) => {
     const context = useContext(starLogContext);
@@ -95,3 +95,4 @@ export const HexDisplay = ({
         </form>
     );
 };
+export default HexInfoDisplay;
