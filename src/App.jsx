@@ -12,23 +12,23 @@ const App = () => {
     let DisplayComp;
     
     switch (appMode) {
-        case 'import-tsv':
-            DisplayComp = T5Import;
-            break;
         case 'view':
             DisplayComp = MapView;
             break;
-        case 'save':
-            localStorage.setItem('map', JSON.stringify(mapObject));
-            setAppMode('menu');
-            DisplayComp = MainMenu;
+        case 'import-tsv':
+            DisplayComp = T5Import;
             break;
-        case 'load':
+        case 'import-local-storage':
             let storedMap = localStorage.getItem('map');
             if (storedMap) {
                 storedMap = JSON.parse(storedMap);
             }
             setMapObject(storedMap);
+            setAppMode('menu');
+            DisplayComp = MainMenu;
+            break;
+        case 'save-local-storage':
+            localStorage.setItem('map', JSON.stringify(mapObject));
             setAppMode('menu');
             DisplayComp = MainMenu;
             break;

@@ -4,27 +4,33 @@ import { starLogContext } from './starLogContext.js';
 const buttonConfig = [
     { 
         appMode: 'view',
-        display: 'View',
+        display: 'View Map',
         mapRequired: true,
     },
     {
-        display: 'Import',
+        display: 'Load Map',
         subMenu: [
             {
                 appMode: 'import-tsv',
                 display: 'From T5 TSV',
             },
+            {
+                appMode: 'import-local-storage',
+                display: 'From Local Storage',
+            },
         ],
     },
     {
-        appMode: 'load',
-        display: 'Load from Local Storage',
-    },
-    {
-        appMode: 'save',
-        display: 'Save to Local Storage',
+        display: 'Save Map',
+        subMenu: [
+            {
+                appMode: 'save-local-storage',
+                display: 'To Local Storage',
+            },
+        ],
         mapRequired: true,
     },
+
 ];
 
 const MainMenu = () => {
@@ -55,7 +61,10 @@ export const MenuButton = ({
     const [open, setOpen] = useState(false);
 
     const ret = [];
-    if (btnConfig.subMenu) {
+
+    if (btnConfig.mapRequired && !context.mapObject) {
+        return null;
+    } else if (btnConfig.subMenu) {
         ret.push(
             <button
                 key={btnConfig.display}
@@ -80,8 +89,6 @@ export const MenuButton = ({
                 })
             );
         }
-    } else if (btnConfig.mapRequired && !context.mapObject) {
-        return null;
     } else {
         ret.push(
             <button

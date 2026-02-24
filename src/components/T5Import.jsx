@@ -50,7 +50,7 @@ const T5Import = () => {
                     context.setAppMode('menu');
                 }}
             >
-                {'<- Back'}
+                ← Back
             </button>
             <label>
                 Upload
