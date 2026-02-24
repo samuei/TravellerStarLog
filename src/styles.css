@@ -21,22 +21,21 @@ body {
 }
 
 button {
-	border-color: aqua;
-	border-radius: 0.6em;
-	color: darkblue;
-	box-shadow: 0 0 40px 40px aqua inset, 0 0 0 0 #3498db;
-	transition: all 150ms ease-in-out;
-	background-color: transparent;
+	background-color: #1899D6;
+	border: solid transparent;
+	border-radius: 0.2em;
+	border-width: 0 0 4px;
+	color: whitesmoke;
+	transition: filter .2s;
 
 	&:hover {
-		box-shadow: 0 0 10px 0 aqua inset, 0 0 10px 4px aqua;
-		color: aqua;
+		filter: brightness(1.2);
 	}
 }
 
 .main-menu {
 	text-align: center;
-	color: aqua;
+	color: whitesmoke;
 
 	button {
 		display: block;
