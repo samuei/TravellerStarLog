@@ -9,33 +9,26 @@ const App = () => {
     const [mapObject, setMapObject] = useState(null);
     const [hexSideLength, setHexSideLength] = useState(180);
 
-    let DisplayComp;
-    
-    switch (appMode) {
-        case 'view':
-            DisplayComp = MapView;
-            break;
-        case 'import-tsv':
-            DisplayComp = T5Import;
-            break;
-        case 'import-local-storage':
-            let storedMap = localStorage.getItem('map');
-            if (storedMap) {
-                storedMap = JSON.parse(storedMap);
-            }
-            setMapObject(storedMap);
-            setAppMode('menu');
-            DisplayComp = MainMenu;
-            break;
-        case 'save-local-storage':
-            localStorage.setItem('map', JSON.stringify(mapObject));
-            setAppMode('menu');
-            DisplayComp = MainMenu;
-            break;
-        case 'menu':
-        default:
-            DisplayComp = MainMenu;
-    }
+    const importFromLocalStorage = () => {
+        let storedMap = localStorage.getItem('map');
+        if (storedMap) {
+            storedMap = JSON.parse(storedMap);
+        }
+        setMapObject(storedMap);
+    };
+
+    const exportToLocalStorage = () => {
+        localStorage.setItem('map', JSON.stringify(mapObject));
+    };
+
+    const exportToJson = () => {
+        const a = document.createElement('a');
+        const file = new Blob([JSON.stringify(mapObject)], {type: 'text/plain'});
+        a.href= URL.createObjectURL(file);
+        a.download = 'traveller-star-log.txt';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    };
 
     return (
         <starLogContext.Provider value={{
@@ -45,8 +38,22 @@ const App = () => {
             setMapObject,
             hexSideLength,
             setHexSideLength,
+            importFromLocalStorage,
+            exportToLocalStorage,
+            exportToJson,
         }}>
-            <DisplayComp key={appMode} />
+            {
+                appMode === 'view'
+                    ? (
+                        <MapView />
+                    ) : appMode === 'import-tsv'
+                        ? (
+                            <T5Import />
+                        ) : (
+                            <MainMenu />
+                        )
+
+            }
         </starLogContext.Provider>
     );
 };

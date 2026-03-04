@@ -2,21 +2,23 @@ import { useContext, useState } from 'react';
 import { starLogContext } from './starLogContext.js';
 
 const buttonConfig = [
-    { 
-        appMode: 'view',
+    {
         display: 'View Map',
+        contextMethod: 'setAppMode',
+        arg: 'view',
         mapRequired: true,
     },
     {
         display: 'Load Map',
         subMenu: [
             {
-                appMode: 'import-tsv',
                 display: 'From T5 TSV',
+                contextMethod: 'setAppMode',
+                arg: 'import-tsv',
             },
             {
-                appMode: 'import-local-storage',
                 display: 'From Local Storage',
+                contextMethod: 'importFromLocalStorage',
             },
         ],
     },
@@ -24,13 +26,16 @@ const buttonConfig = [
         display: 'Save Map',
         subMenu: [
             {
-                appMode: 'save-local-storage',
+                display: 'To JSON',
+                contextMethod: 'exportToJson',
+            },
+            {
                 display: 'To Local Storage',
+                contextMethod: 'exportToLocalStorage',
             },
         ],
         mapRequired: true,
     },
-
 ];
 
 const MainMenu = () => {
@@ -92,11 +97,13 @@ export const MenuButton = ({
     } else {
         ret.push(
             <button
-                key={btnConfig.appMode}
+                key={btnConfig.display}
                 className='menu-button'
                 data-menu-depth={lvl}
                 onClick={() => {
-                    context.setAppMode(btnConfig.appMode);
+                    if (btnConfig.contextMethod) {
+                        context[btnConfig.contextMethod](btnConfig.arg ?? null);
+                    }
                 }}
             >
                 {btnConfig.display}

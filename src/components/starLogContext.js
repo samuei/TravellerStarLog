@@ -7,5 +7,8 @@ export const starLogContext = createContext({
     setMapObject: () => {},
     hexSideLength: 360,
     setHexSideLength: () => {},
+    importFromLocalStorage: () => {},
+    exportToLocalStorage: () => {},
+    exportToJson: () => {},
 });
 starLogContext.displayName = 'StarLogContext';
