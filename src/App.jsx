@@ -3,6 +3,7 @@ import MainMenu from './components/MainMenu.jsx';
 import { starLogContext } from './components/starLogContext.js';
 import T5Import from './components/T5Import.jsx';
 import MapView from './components/MapView.jsx';
+import { JsonImport } from './JsonImport.jsx';
 
 const App = () => {
     const [appMode, setAppMode] = useState('menu');
@@ -49,9 +50,12 @@ const App = () => {
                     ) : appMode === 'import-tsv'
                         ? (
                             <T5Import />
-                        ) : (
-                            <MainMenu />
-                        )
+                        ) : appMode === 'import-json'
+                            ? (
+                                <JsonImport />
+                            ) : (
+                                <MainMenu />
+                            )
 
             }
         </starLogContext.Provider>

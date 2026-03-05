@@ -17,6 +17,11 @@ const buttonConfig = [
                 arg: 'import-tsv',
             },
             {
+                display: 'From JSON',
+                contextMethod: 'setAppMode',
+                arg: 'import-json',
+            },
+            {
                 display: 'From Local Storage',
                 contextMethod: 'importFromLocalStorage',
             },
