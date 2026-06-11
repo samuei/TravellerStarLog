@@ -1,12 +1,12 @@
 .map-side-bar {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 50px;
     gap: 8px;
     color: antiquewhite;
     min-width: 25vw;
 
     .map-side-bar-controls {
-        grid-column-start: 5;
+        grid-column-start: 2;
         text-align: end;
 
         button {
@@ -15,7 +15,7 @@
     }
 
     form {
-        grid-column: span 5 / span 5;
+        grid-column-start: 1;
         text-align: center;
         display: flex;
         flex-direction: column;
