@@ -32,26 +32,26 @@ const HexInfoDisplay = ({
             <h2>
                 {activeHex}
             </h2>
-            <label htmlFor="systemName">
+            <label htmlFor='systemName'>
                 System Name
             </label>
             <input
-                id="systemName"
-                type="text"
+                id='systemName'
+                type='text'
                 placeholder={activeHex}
                 value={systemName}
                 onChange={(e) => setSystemName(e.target.value)}
             />
-            <label htmlFor="uwp">
+            <label htmlFor='uwp'>
                 UWP
             </label>
             <input
-                id="uwp"
-                type="text"
+                id='uwp'
+                type='text'
                 value={uwp}
                 onChange={(e) => setUwp(e.target.value)}
             />
-            <label htmlFor="allegiance">
+            <label htmlFor='allegiance'>
                 Allegiance
             </label>
             <input

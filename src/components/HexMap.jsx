@@ -11,7 +11,7 @@ const Hexagon = ({
                 className={`clip-each clip-border ${ allegiance ? allegiance + ' allegiance' : ''}`}
                 onClick={onClick}
             >
-                <div className="hex-content">
+                <div className='hex-content'>
                     {starport}
                     <br />
                     {hexName}

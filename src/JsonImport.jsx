@@ -5,7 +5,7 @@ export const JsonImport = () => {
     const context = useContext(starLogContext);
 
     return (
-        <div className="main-menu">
+        <div className='main-menu'>
             <button
                 onClick={() => {
                     context.setAppMode('menu');
@@ -16,7 +16,7 @@ export const JsonImport = () => {
             <label>
                 Upload
                 <input
-                    type="file"
+                    type='file'
                     onChange={(e) => {
                         e.target.files[0].text().then((dataFile) => {
                             const mapObj = JSON.parse(dataFile);

@@ -43,7 +43,7 @@ button {
 		width: 40%;
 		padding: 1.2em 0;
 
-		&[data-menu-depth="1"] {
+		&[data-menu-depth='1'] {
 			width: 30%;
 
 			&::before {
@@ -51,7 +51,7 @@ button {
 			}
 		}
 
-		&[data-menu-depth="2"] {
+		&[data-menu-depth='2'] {
 			width: 20%;
 
 			&::before {

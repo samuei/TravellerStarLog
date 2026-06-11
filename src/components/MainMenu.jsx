@@ -78,7 +78,7 @@ export const MenuButton = ({
         ret.push(
             <button
                 key={btnConfig.display}
-                className="menu-button"
+                className='menu-button'
                 data-menu-depth={lvl}
                 onClick={() => setOpen(!open)}
             >

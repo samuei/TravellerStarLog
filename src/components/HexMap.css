@@ -78,7 +78,7 @@
     }
 
     .clip-border::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 4%;
         left: 4%;
