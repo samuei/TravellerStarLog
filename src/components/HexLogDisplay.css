@@ -1,0 +1,32 @@
+.hexLogEntry {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 30px auto;
+    grid-template-rows: 30px auto 30px;
+    gap: 5px;
+
+    .logMoveDownBtn {
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+
+    .logDate {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+
+    .logContents {
+        grid-column-start: 2;
+        grid-row-start: 2;
+    }
+
+    .logControls {
+        grid-row-start: 3;
+
+        button {
+            height: 100%;
+            padding: 0 5px;
+            margin-right: 5px;
+        }
+    }
+}
