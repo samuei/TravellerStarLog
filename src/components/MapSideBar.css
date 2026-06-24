@@ -14,7 +14,7 @@
         }
     }
 
-    form {
+    .hexLogDisplay, .HexInfoDisplay {
         grid-column-start: 1;
         text-align: center;
         display: flex;

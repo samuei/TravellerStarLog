@@ -6,6 +6,11 @@ const HexInfoDisplay = ({
 }) => {
     const context = useContext(starLogContext);
 
+    /*
+        TODO Expand this with the TravellerMap data from here:
+        https://travellermap.com/doc/fileformats#t5tab
+        https://travellermap.com/doc/secondsurvey
+    */
     const [systemName, setSystemName] = useState(hexData?.Name || '');
     const [uwp, setUwp] = useState(hexData?.UWP || '');
     const [allegiance, setAllegiance] = useState(hexData?.Allegiance || '');
@@ -28,7 +33,7 @@ const HexInfoDisplay = ({
     };
 
     return (
-        <form onSubmit={saveHex}>
+        <div className='HexInfoDisplay'>
             <h2>
                 {activeHex}
             </h2>
@@ -89,10 +94,12 @@ const HexInfoDisplay = ({
                 maxLength={1}
             />
 
-            <button type="submit">
+            <button
+                onClick={saveHex}
+            >
                 Save Hex
             </button>
-        </form>
+        </div>
     );
 };
 export default HexInfoDisplay;

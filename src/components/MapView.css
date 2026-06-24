@@ -5,7 +5,9 @@
     overflow: hidden;
 
     .map-side-bar-container {
+        min-width: 30vw;
         width: 30vw;
+        overflow-y: auto;
     }
 
     .body {

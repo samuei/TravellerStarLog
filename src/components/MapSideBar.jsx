@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { starLogContext } from './starLogContext.js';
 import HexInfoDisplay from './HexInfoDisplay.jsx';
+import HexLogDisplay from './HexLogDisplay.jsx';
 import './MapSideBar.css';
 
 const MapSideBar = ({
@@ -9,11 +10,11 @@ const MapSideBar = ({
     if (!activeHex || !activeHex.length) {
         return null;
     }
+
     const context = useContext(starLogContext);
     const yCoordinates = `${activeHex[0]}${activeHex[1]}`;
     const xCoordinates = `${activeHex[2]}${activeHex[3]}`;
     const hexData = context.mapObject.hexes[xCoordinates - 1][yCoordinates - 1];
-
 
     return (
         <div className='map-side-bar'>
@@ -36,7 +37,12 @@ const MapSideBar = ({
                 </button>
             </div>
 
-            <HexDisplay
+            <HexInfoDisplay
+                hexData={hexData}
+                activeHex={activeHex}
+            />
+
+            <HexLogDisplay
                 hexData={hexData}
                 activeHex={activeHex}
             />
