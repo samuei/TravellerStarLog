@@ -31,6 +31,22 @@ const App = () => {
         URL.revokeObjectURL(a.href);
     };
 
+    let AppComponent;
+
+    switch (appMode) {
+        case 'view':
+            AppComponent = MapView;
+            break;
+        case 'import-tsv':
+            AppComponent = T5Import;
+            break;
+        case 'import-json':
+            AppComponent = JsonImport;
+            break;
+        default:
+            AppComponent = MainMenu;
+    }
+
     return (
         <starLogContext.Provider value={{
             appMode,
@@ -43,21 +59,7 @@ const App = () => {
             exportToLocalStorage,
             exportToJson,
         }}>
-            {
-                appMode === 'view'
-                    ? (
-                        <MapView />
-                    ) : appMode === 'import-tsv'
-                        ? (
-                            <T5Import />
-                        ) : appMode === 'import-json'
-                            ? (
-                                <JsonImport />
-                            ) : (
-                                <MainMenu />
-                            )
-
-            }
+            <AppComponent />
         </starLogContext.Provider>
     );
 };
