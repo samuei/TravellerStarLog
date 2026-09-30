@@ -4,6 +4,7 @@ import { starLogContext } from './components/starLogContext.js';
 import T5Import from './components/T5Import.jsx';
 import MapView from './components/MapView.jsx';
 import { JsonImport } from './JsonImport.jsx';
+import TravellerMapImport from './components/TravellerMapImport.jsx';
 
 const App = () => {
     const [appMode, setAppMode] = useState('menu');
@@ -42,6 +43,9 @@ const App = () => {
             break;
         case 'import-json':
             AppComponent = JsonImport;
+            break;
+        case 'import-traveller-map':
+            AppComponent = TravellerMapImport;
             break;
         default:
             AppComponent = MainMenu;

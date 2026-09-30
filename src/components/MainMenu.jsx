@@ -25,6 +25,11 @@ const buttonConfig = [
                 display: 'From Local Storage',
                 contextMethod: 'importFromLocalStorage',
             },
+            {
+                display: 'From TravellerMap',
+                contextMethod: 'setAppMode',
+                arg: 'import-traveller-map',
+            },
         ],
     },
     {

@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { starLogContext } from './starLogContext.js';
 import Papa from 'papaparse';
 
-const parseT5FileIntoMapObject = (dataFile={}, xMax=32, yMax=40) => {
+export const parseT5FileIntoMapObject = (dataFile={}, xMax=32, yMax=40) => {
     const file = Papa.parse(dataFile, {
         skipEmptyLines: 'greedy',
         header: true,

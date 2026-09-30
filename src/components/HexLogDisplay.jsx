@@ -92,8 +92,8 @@ const HexLogEntry = ({
 })=> {
     const [editing, setEditing] = useState(!entry.date);
     const [confirmingDelete, setConfirmingDelete] = useState(false);
-    const [dateText, setDateText] = useState(entry.date ?? '{ Redacted }');
-    const [entryText, setEntryText] = useState(entry.entry ?? ' { Insufficient Clearance }');
+    const [dateText, setDateText] = useState(entry.date ? entry.data : ' { Redacted } ');
+    const [entryText, setEntryText] = useState(entry.entry ? entry.entry : ' { Insufficient Clearance } ');
 
     return (
         <div className='hexLogEntry'>
@@ -116,10 +116,11 @@ const HexLogEntry = ({
                             className='logDate'
                             type='text'
                             value={dateText}
+                            placeholder='Date'
                             onChange={(e) => setDateText(e.target.value)}
                         />
                     ) : (
-                        <div className='logDate'>{entry.date}</div>
+                        <div className='logDate'>{entry.date || ' { Redacted } '}</div>
                     )
             }
             {
@@ -128,10 +129,11 @@ const HexLogEntry = ({
                         <textarea
                             className='logContents'
                             value={entryText}
+                            placeholder='Log Contents'
                             onChange={(e) => setEntryText(e.target.value)}
                         />
                     ) : (
-                        <div className='logContents'>{entry.entry}</div>
+                        <div className='logContents'>{entry.entry || ' { Insufficient Clearance } '}</div>
                     )
             }
             <div className='logControls'>
