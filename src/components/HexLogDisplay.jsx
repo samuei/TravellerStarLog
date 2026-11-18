@@ -3,7 +3,7 @@ import { starLogContext } from './starLogContext.js';
 import './HexLogDisplay.css';
 
 const HexLogDisplay = ({
-    hexData = {}, activeHex = null
+    hexData = {}
 }) => {
     const context = useContext(starLogContext);
 
@@ -88,12 +88,11 @@ const HexLogDisplay = ({
 export default HexLogDisplay;
 
 const HexLogEntry = ({
-    entry, moveEntryUp=()=>{}, moveEntryDown=()=>{}, setEntry=()=>{},
+    entry, moveEntryUp=()=>{}, moveEntryDown=()=>{}, setEntry=()=>{}, deleteEntry=()=>{},
 })=> {
     const [editing, setEditing] = useState(!entry.date);
-    const [confirmingDelete, setConfirmingDelete] = useState(false);
-    const [dateText, setDateText] = useState(entry.date ? entry.data : ' { Redacted } ');
-    const [entryText, setEntryText] = useState(entry.entry ? entry.entry : ' { Insufficient Clearance } ');
+    const [dateText, setDateText] = useState(entry.date ? entry.data : '');
+    const [entryText, setEntryText] = useState(entry.entry ? entry.entry : '');
 
     return (
         <div className='hexLogEntry'>
@@ -120,7 +119,7 @@ const HexLogEntry = ({
                             onChange={(e) => setDateText(e.target.value)}
                         />
                     ) : (
-                        <div className='logDate'>{entry.date || ' { Redacted } '}</div>
+                        <div className='logDate'>{entry.date.length ? entry.date : ' { Redacted } '}</div>
                     )
             }
             {
@@ -133,7 +132,7 @@ const HexLogEntry = ({
                             onChange={(e) => setEntryText(e.target.value)}
                         />
                     ) : (
-                        <div className='logContents'>{entry.entry || ' { Insufficient Clearance } '}</div>
+                        <div className='logContents'>{entry.entry.length ? entry.entry : ' { Insufficient Clearance } '}</div>
                     )
             }
             <div className='logControls'>
@@ -175,7 +174,7 @@ const HexLogEntry = ({
                         ) : (
                             <button
                                 className='logBtnRight'
-                                onClick={() => setConfirmingDelete(true)}
+                                onClick={deleteEntry}
                             >
                                 Delete
                             </button>

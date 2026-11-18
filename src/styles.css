@@ -64,9 +64,9 @@ button {
 		display: block;
 		margin: 5vh auto;
 
-		input, textarea {
+		input, textarea, select {
 			display: block;
-			margin: auto;
+			margin: 1vh auto auto;
 		}
 	}
 }

@@ -44,7 +44,6 @@ const MapSideBar = ({
 
             <HexLogDisplay
                 hexData={hexData}
-                activeHex={activeHex}
             />
         </div>
     );
